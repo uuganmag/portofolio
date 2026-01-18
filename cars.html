@@ -63,7 +63,7 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
                     <div>
                         <div class="metric-label">AVERAGE_MARKET_PRICE_TOP_20</div>
-                        <div class="metric-value">60,960 ₮</div>
+                        <div class="metric-value">60,960,000 ₮</div>
                         <p style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
                             Based on the latest premium listings. High variance observed due to Luxury SUV presence.
                         </p>
@@ -326,7 +326,7 @@
                 // 4. Update Stats
                 if (visibleCount > 0) {
                     const newAvg = totalPrice / visibleCount;
-                    const truncatedAvg = Math.floor(newAvg / 1000);
+                    const truncatedAvg = Math.floor(newAvg / 1);
                     avgValDisplay.innerText = truncatedAvg.toLocaleString() + ' ₮';
                     footerDisplay.innerText = `Showing ${visibleCount} listings for ${selectedMake.toUpperCase()}.`;
                 } else {
