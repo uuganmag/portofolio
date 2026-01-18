@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uuganmaa_Portfolio_v1.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="layout-grid">
+        <!-- Sidebar / Nav -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <h2 style="font-size: 1.2rem;">Uuganmaa<span style="color: var(--accent-primary)">.py</span></h2>
+                <p
+                    style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    > Data Analyst<br>
+                    > Business Analyst
+                </p>
+            </div>
+            <nav>
+                <ul class="nav-links">
+
+                    <li><a href="#model-demo"><i class="fa-solid fa-terminal"></i> Model Demo</a></li>
+                    <li><a href="cars.html"><i class="fa-solid fa-chart-line"></i> Market Analysis</a></li>
+                    <li><a href="#codebase"><i class="fa-solid fa-code"></i> Skills</a></li>
+                    <li><a href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+            <div
+                style="margin-top: auto; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary);">
+                @2026<br>
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- Hero / Overview -->
+            <section id="overview" style="margin-bottom: 4rem;">
+                <h1>Predictive Analytics Portfolio</h1>
+                <p style="color: var(--text-secondary); max-width: 600px; margin-bottom: 2rem;">
+                    Developing robust machine learning models for financial decision-making.
+                    Specialized in credit risk assessment and default prediction algorithms.
+                </p>
+
+                <div class="code-block">
+                    <div style="margin-bottom: 0.5rem; opacity: 0.5;"># Current Objective</div>
+                    <span class="keyword-hl">class</span> <span class="var-hl">FinancialModel</span>(Base):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword-hl">def</span> <span
+                        class="var-hl">__init__</span>(self):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.target = <span class="string-hl">"Default
+                        Prediction"</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.accuracy = <span class="var-hl">0.94</span>
+                </div>
+            </section>
+
+            <!-- Predictor Dashboard -->
+            <section id="model-demo" class="section-header">
+                <h3><i class="fa-solid fa-calculator"></i> Default_Prediction_Model_v2</h3>
+            </section>
+
+            <div class="dashboard-panel">
+                <div class="data-grid">
+                    <!-- Inputs -->
+                    <div class="control-panel">
+                        <form id="predictionForm" onsubmit="event.preventDefault(); runModel();">
+                            <label for="income">input_monthly_income (MNT)</label>
+                            <div class="input-wrapper">
+                                <span
+                                    style="font-family: var(--font-mono); margin-right: 0.5rem; color: var(--text-secondary);">₮</span>
+                                <input type="text" id="income" class="input-field" placeholder="0.00"
+                                    oninput="formatCurrency(this)">
+                            </div>
+
+                            <label for="dti">input_dti_ratio (%)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="dti" class="input-field" placeholder="0.0" step="0.1">
+                            </div>
+
+                            <button type="submit" class="btn-run">
+                                <i class="fa-solid fa-play" style="font-size: 0.8rem; margin-right: 0.5rem;"></i>
+                                EXECUTE MODEL
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Output -->
+                    <div class="output-console" id="outputConsole">
+                        <div style="opacity: 0.4; font-size: 0.9rem;">
+                            > Waiting for input streams...<br>
+                            > Ready.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <section id="codebase" style="margin-top: 5rem;">
+                <div class="section-header">
+                    <h3>Technical Stack</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div>
+                        <h4 style="font-family: var(--font-mono); margin-bottom: 1rem;">[Core]</h4>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li>Python 3.10+</li>
+                            <li>SQL (PostgreSQL)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-family: var(--font-mono); margin-bottom: 1rem;">[Libraries]</h4>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li>Pandas / NumPy</li>
+                            <li>Scikit-Learn</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-family: var(--font-mono); margin-bottom: 1rem;">[Visualization]</h4>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li>Matplotlib / Seaborn</li>
+                            <li>Tableau</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact"
+                style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <div class="section-header">
+                    <h3>Contact_Info</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; font-family: var(--font-mono);">
+                    <div
+                        style="background: var(--panel-bg); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px;">
+                        <div style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.5rem;">
+                            EMAIL_ADDRESS</div>
+                        <a href="mailto:uuganma.g@gmail.com"
+                            style="color: var(--accent-primary); text-decoration: none; font-size: 1.1rem;">uuganma.g@gmail.com</a>
+                    </div>
+                    <div
+                        style="background: var(--panel-bg); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px;">
+                        <div style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.5rem;">
+                            PHONE_NUMBER</div>
+                        <div style="font-size: 1.1rem;">(+976) 9997-1446</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

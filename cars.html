@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uuganmaa | Market Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="layout-grid">
+        <!-- Sidebar / Nav -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <h2 style="font-size: 1.2rem;">Uuganmaa<span style="color: var(--accent-primary)">.py</span></h2>
+                <p
+                    style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    > Data Analyst<br>
+                    > Business Analyst
+                </p>
+            </div>
+            <nav>
+                <ul class="nav-links">
+
+                    <li><a href="index.html#model-demo"><i class="fa-solid fa-terminal"></i> Model Demo</a></li>
+                    <li><a href="cars.html" class="active"><i class="fa-solid fa-chart-line"></i> Market Analysis</a>
+                    </li>
+                    <li><a href="index.html#codebase"><i class="fa-solid fa-code"></i> Skills</a></li>
+                    <li><a href="index.html#contact"><i class="fa-regular fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+            <div
+                style="margin-top: auto; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary);">
+                @2026<br>
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+
+            <section class="section-header">
+                <h3><i class="fa-solid fa-car"></i> Car_Price_Analysis (Unegui.mn)</h3>
+            </section>
+
+            <!-- Summary Statistics -->
+            <div class="dashboard-panel" style="margin-bottom: 2rem;">
+                <div
+                    style="font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                    > Fetching data from source: 'unegui.mn'<br>
+                    > Sample Size: 20<br>
+                    > Calculating mean...
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+                    <div>
+                        <div class="metric-label">AVERAGE_MARKET_PRICE_TOP_20</div>
+                        <div class="metric-value">60,960 ₮</div>
+                        <p style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                            Based on the latest premium listings. High variance observed due to Luxury SUV presence.
+                        </p>
+                    </div>
+                    <!-- Simple Bar Chart Visualization (CSS) -->
+                    <div
+                        style="height: 100px; display: flex; align-items: flex-end; gap: 4px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);">
+                        <!-- Simulated bars for visual effect -->
+                        <div style="background:var(--accent-primary); width: 10%; height: 40%; opacity: 0.5"></div>
+                        <div style="background:var(--accent-primary); width: 10%; height: 80%; opacity: 0.8"></div>
+                        <div style="background:var(--accent-primary); width: 10%; height: 60%; opacity: 0.6"></div>
+                        <div style="background:var(--accent-primary); width: 10%; height: 90%; opacity: 0.9"></div>
+                        <div style="background:var(--accent-primary); width: 10%; height: 50%; opacity: 0.5"></div>
+                        <div style="background:var(--accent-primary); width: 10%; height: 30%; opacity: 0.3"></div>
+                        <div style="background:var(--accent-primary); width: 10%; height: 75%; opacity: 0.7"></div>
+                        <div style="background:var(--accent-primary); width: 10%; height: 60%; opacity: 0.6"></div>
+                        <div style="background:var(--accent-risk-high); width: 10%; height: 20%; opacity: 0.2"></div>
+                        <!-- Average line roughly here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="code-block"
+                style="background: var(--panel-bg); color: var(--text-primary); border: 1px solid var(--border-color); padding: 0;">
+                <div
+                    style="padding: 1rem; border-bottom: 1px solid var(--border-color); background: var(--bg-color); display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 600;">DATA_FRAME_PREVIEW.head(20)</span>
+                    <select id="carFilter"
+                        style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.8rem;">
+                        <option value="all">FILTER_BY_MAKE: ALL</option>
+                    </select>
+                </div>
+                <table id="carsTable"
+                    style="width: 100%; text-align: left; border-collapse: collapse; font-size: 0.9rem;">
+                    <thead
+                        style="background: var(--surface-bg); color: var(--text-secondary); font-family: var(--font-mono);">
+                        <tr>
+                            <th style="padding: 1rem; border-bottom: 1px solid var(--border-color);">INDEX</th>
+                            <th style="padding: 1rem; border-bottom: 1px solid var(--border-color);">VEHICLE_MODEL</th>
+                            <th style="padding: 1rem; border-bottom: 1px solid var(--border-color); text-align: right;">
+                                PRICE (MNT)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Cars Data -->
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">0</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Lexus HS, 2009/2023</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">22,900,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">1</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Lexus RX 450, 2020/2024</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">130,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">2</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Mercedes-Benz GL-Class,
+                                2016/2025</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">96,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">3</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Crown, 2013/2021</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">33,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">4</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Aqua, 2013/2023</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">12,900,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">5</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">BMW M-сери, 2019/2025</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">86,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">6</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Lexus RX 450, 2019/2025</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">115,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">7</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Lexus HS, 2011/2024</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">24,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">8</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Lexus LX 570, 2019/2021</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">235,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">9</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Vanguard, 2011/2021
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">18,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">10</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Sai, 2010/2024</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">21,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">11</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Prius 41, 2019/2025
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">40,600,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">12</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Prius 55, 2016/2025
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">31,600,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">13</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Harrier, 2019/2025
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">67,600,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">14</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Crown, 2014/2022</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">38,000,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">15</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Prius 30, 2013/2023
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">18,500,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">16</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Prius 20, 2004/2016
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">6,800,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">17</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Harrier, 2022/2026
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">90,800,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">18</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Toyota Prius 30, 2014/2024
+                            </td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">19,500,000 ₮
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; color: var(--text-secondary);">19</td>
+                            <td class="model-name" style="padding: 1rem; font-weight: 500;">Lexus RX 450, 2020/2026</td>
+                            <td class="price-val"
+                                style="padding: 1rem; text-align: right; font-family: var(--font-mono);">112,000,000 ₮
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="tableFooter"
+                    style="padding: 1rem; font-size: 0.8rem; color: var(--text-secondary); text-align: center;">
+                    Showing 20 of 20 fetched rows.
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const table = document.getElementById('carsTable');
+            const rows = table.querySelectorAll('tbody tr');
+            const filterSelect = document.getElementById('carFilter');
+            const avgValDisplay = document.querySelector('.metric-value');
+            const footerDisplay = document.getElementById('tableFooter');
+
+            // 1. Extract Unique Makes
+            const makes = new Set();
+            rows.forEach(row => {
+                row.style.display = 'none'; // Hide all initially
+                const modelText = row.querySelector('.model-name').innerText;
+                const make = modelText.split(' ')[0];
+                makes.add(make);
+            });
+
+            // 2. Populate Dropdown
+            // Clear initially
+            filterSelect.innerHTML = '<option value="" disabled selected>SELECT_BRAND</option>';
+
+            makes.forEach(make => {
+                const option = document.createElement('option');
+                option.value = make;
+                option.innerText = make.toUpperCase();
+                filterSelect.appendChild(option);
+            });
+
+            // Reset Initial Stats
+            avgValDisplay.innerText = '-- ₮';
+            footerDisplay.innerText = 'Please select a car brand to view market data.';
+
+            // 3. Filter Function
+            filterSelect.addEventListener('change', (e) => {
+                const selectedMake = e.target.value;
+                let visibleCount = 0;
+                let totalPrice = 0;
+
+                rows.forEach(row => {
+                    const modelText = row.querySelector('.model-name').innerText;
+                    const priceText = row.querySelector('.price-val').innerText;
+                    const price = parseFloat(priceText.replace(/[^0-9]/g, ''));
+                    const make = modelText.split(' ')[0];
+
+                    if (make === selectedMake) {
+                        row.style.display = '';
+                        visibleCount++;
+                        totalPrice += price;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                // 4. Update Stats
+                if (visibleCount > 0) {
+                    const newAvg = totalPrice / visibleCount;
+                    const truncatedAvg = Math.floor(newAvg / 1000);
+                    avgValDisplay.innerText = truncatedAvg.toLocaleString() + ' ₮';
+                    footerDisplay.innerText = `Showing ${visibleCount} listings for ${selectedMake.toUpperCase()}.`;
+                } else {
+                    avgValDisplay.innerText = '-- ₮';
+                    footerDisplay.innerText = 'No data available for this selection.';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

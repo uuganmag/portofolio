@@ -1,0 +1,260 @@
+:root {
+    --bg-color: #f4f4f7;
+    --panel-bg: #ffffff;
+    --text-primary: #1c1c1e;
+    --text-secondary: #636366;
+    --accent-primary: #007aff;
+    /* System Blue */
+    --accent-risk-high: #ff3b30;
+    --accent-risk-low: #34c759;
+    --border-color: #e5e5ea;
+    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    line-height: 1.6;
+}
+
+/* Technical Layout */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--panel-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section {
+    margin-bottom: 3rem;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 1rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: var(--bg-color);
+    color: var(--text-primary);
+}
+
+/* Main Content */
+main {
+    padding: 4rem;
+    max-width: 1200px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Code/Data Blocks */
+.code-block {
+    font-family: var(--font-mono);
+    background: #1e1e1e;
+    /* Dark code editor bg */
+    color: #d4d4d4;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.var-hl {
+    color: #9cdcfe;
+}
+
+.string-hl {
+    color: #ce9178;
+}
+
+.keyword-hl {
+    color: #569cd6;
+}
+
+.comment-hl {
+    color: #6a9955;
+}
+
+/* Predictor Dashboard */
+.dashboard-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.control-panel label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--accent-primary);
+}
+
+.input-field {
+    border: none;
+    background: transparent;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    width: 100%;
+    outline: none;
+    color: var(--text-primary);
+}
+
+.btn-run {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--text-primary);
+    color: white;
+    font-family: var(--font-mono);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-run:hover {
+    background: #333;
+}
+
+/* Output Area */
+.output-console {
+    font-family: var(--font-mono);
+    border-left: 2px solid var(--border-color);
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+.status-safe {
+    background: rgba(52, 199, 89, 0.1);
+    color: var(--accent-risk-low);
+}
+
+.status-risk {
+    background: rgba(255, 59, 48, 0.1);
+    color: var(--accent-risk-high);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .data-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .output-console {
+        border-left: none;
+        border-top: 2px solid var(--border-color);
+        padding-left: 0;
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
+}
